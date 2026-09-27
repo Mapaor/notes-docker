@@ -1,0 +1,23 @@
+services:
+  notes:
+    build: .
+    ports:
+      - "${PORT:-8084}:8084"
+    environment:
+      PORT: 8084
+      DATABASE_PATH: /data/notes.db
+      MAX_NOTE_SIZE: ${MAX_NOTE_SIZE:-100000}
+      RUST_LOG: ${RUST_LOG:-info}
+    volumes:
+      - notes-data:/data
+    restart: unless-stopped
+    networks:
+      - notes-net
+
+volumes:
+  notes-data:
+
+networks:
+  notes-net:
+    name: notes-net
+    external: true # needs to run `docker network create notes-network` once

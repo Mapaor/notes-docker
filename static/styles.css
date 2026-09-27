@@ -1,0 +1,235 @@
+@font-face {
+  font-family: "iAWriterQuattroS";
+  src: url("/fonts/iAWriterQuattroS/iAWriterQuattroS-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iAWriterQuattroS";
+  src: url("/fonts/iAWriterQuattroS/iAWriterQuattroS-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iAWriterQuattroS";
+  src: url("/fonts/iAWriterQuattroS/iAWriterQuattroS-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "iAWriterQuattroS";
+  src: url("/fonts/iAWriterQuattroS/iAWriterQuattroS-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+:root {
+  color-scheme: light;
+  --ink: #20211e;
+  --muted: #76766e;
+  --line: #d9d5c9;
+  --paper: #fbfaf6;
+  --accent: #c94f35;
+  --accent-dark: #9c3826;
+  --accent-semidark: #b03f2c;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f5f1e8;
+  color: var(--ink);
+  font-family: "iAWriterQuattroS", sans-serif;
+}
+.shell {
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 42px 0 72px;
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 12px;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+.count,
+.hint,
+.status {
+  color: var(--muted);
+  font: 12px/1.4 "iAWriterQuattroS", sans-serif;
+}
+.composer {
+  margin: 28px 0 38px;
+}
+label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font: 11px/1.2 "iAWriterQuattroS", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  resize: none;
+  overflow: auto;
+  -webkit-appearance: none;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #fffdf8 0%, var(--paper) 100%);
+  color: var(--ink);
+  font: 18px/1.5 "iAWriterQuattroS", sans-serif;
+  outline: none;
+  box-shadow: 0 8px 22px rgba(73, 62, 43, 0.06);
+  caret-color: var(--accent);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+textarea::placeholder {
+  color: #aaa498;
+  font-style: italic;
+}
+textarea:focus {
+  /* border-color: var(--accent); */
+  /* box-shadow: 0 0 0 3px rgba(201, 79, 53, 0.12), 0 10px 24px rgba(73, 62, 43, 0.08); */
+}
+.composer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 11px;
+}
+.composer-footer button[type="submit"] {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.composer-footer button[type="submit"] svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+button {
+  border: 0;
+  border-radius: 2px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+  font: 600 13px "iAWriterQuattroS", sans-serif;
+  transition: background 0.18s ease;
+}
+button:hover {
+  background: var(--accent-semidark);
+  transition: background 0.18s ease;
+}
+
+.status {
+  min-height: 20px;
+  margin: -20px 0 18px;
+  color: var(--accent-dark);
+}
+.note {
+  border-top: 1px solid var(--line);
+  padding: 21px 0 20px;
+  animation: appear 0.2s ease-out;
+}
+.note-content {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 18px;
+  line-height: 1.55;
+}
+.note-content a {
+  color: var(--accent-dark);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.note-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 15px;
+  color: var(--muted);
+  font: 11px "iAWriterQuattroS", sans-serif;
+}
+.actions {
+  display: flex;
+  gap: 14px;
+}
+.actions button {
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.actions button:hover {
+  color: var(--accent-dark);
+}
+.bulk-delete {
+  display: block;
+  margin-top: 18px;
+  padding: 0;
+  color: var(--muted);
+  font: 400 13px "iAWriterQuattroS", sans-serif;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.bulk-delete[hidden] {
+  display: none;
+}
+.bulk-delete:hover {
+  color: var(--accent-dark);
+}
+.bulk-delete.is-disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+.empty {
+  border-top: 1px solid var(--line);
+  padding-top: 21px;
+  color: var(--muted);
+  font-size: 16px;
+  font-style: italic;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 520px) {
+  .shell {
+    width: min(100% - 24px, 760px);
+    padding-top: 26px;
+  }
+  .composer {
+    margin-top: 22px;
+  }
+  .note-content {
+    font-size: 17px;
+  }
+}

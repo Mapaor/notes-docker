@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e8">
+  <title>Notes</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <!-- <header class="header"><h1>notes</h1><span id="count" class="count"></span></header> -->
+    <form id="note-form" class="composer">
+      <!-- <label for="content">Nova nota</label> -->
+      <textarea id="content" name="content" rows="5" maxlength="100000" autofocus placeholder="Escriu alguna cosa..."></textarea>
+      <div class="composer-footer">
+        <button type="submit" title="Afegir nota">
+          Afegir nota
+        </button>
+      </div>
+    </form>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+    <section id="notes" class="notes" aria-live="polite"></section>
+    <a id="delete-oldest" class="bulk-delete" href="#" role="button" aria-disabled="true" hidden>Elimina les últimes 10 notes</a>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>
