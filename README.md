@@ -98,4 +98,4 @@ DELETE FROM notes WHERE id = ?
 
 ## Llicència
 
-MIT
+[MIT](LICENSE)
